@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAPPY VALENTINE SAYANGGGGGGGG🤍</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background: linear-gradient(135deg,#ff6fae,#ff3d8b,#ffd1e3);
+color:white;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.slide{display:none;max-width:95%;padding:25px;animation:fade .6s ease}
+.slide.active{display:block}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+.big-title{font-size:2.5rem}
+.final-surprise{font-size:2rem}
+
+button{
+background:#ff2f92;border:none;color:white;
+padding:14px 32px;border-radius:40px;
+font-size:1.05rem;margin-top:20px;
+cursor:pointer;transition:.3s}
+button:hover{transform:scale(1.08)}
+
+.choice-btn{display:block;margin:10px auto}
+
+input,textarea{
+padding:12px;border-radius:20px;border:none;
+width:80%;max-width:320px;font-size:1rem}
+
+.secret-box{background:rgba(255,255,255,.15);padding:20px;border-radius:20px}
+
+.confetti{position:fixed;width:8px;height:8px;top:-10px;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+
+.countdown{font-size:3rem;font-weight:bold;margin-top:20px}
+
+.photo-grid{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:20px;
+max-height:60vh;
+overflow:auto;
+}
+
+.photo-grid img{
+width:220px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+object-fit:cover
+}
+
+.photo-item{display:flex;flex-direction:column;align-items:center}
+.photo-item textarea{margin-top:10px}
+
+.heart{
+position:fixed;
+top:-20px;
+font-size:20px;
+animation:fall 3s linear forwards;
+}
+
+.blur-img{filter:blur(12px);transition:filter 2s ease}
+.typing-text{opacity:0;transition:opacity .5s ease}
+.flash-bg{
+animation:flashPink 1s ease;
+}
+
+@keyframes flashPink{
+0%{background:#ff008c}
+50%{background:#ff66b3}
+100%{background: linear-gradient(135deg,#ff6fae,#ff3d8b,#ffd1e3);}
+}
+
+.sticker{
+position:fixed;
+top:-30px;
+animation:stickerFall linear forwards;
+pointer-events:none;
+z-index:9999;
+}
+
+@keyframes stickerFall{
+0%{transform:translateY(-20px) rotate(0deg);opacity:1}
+100%{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+</style>
+</head>
+<body>
+
+<audio id="music" src="monolog.mpeg" loop></audio>
+
+<!-- SLIDE 1 -->
+<div class="slide active">
+<h1 class="big-title">HAPPY VALENTINE SAYANGGGG 🤍</h1>
+<p>siap yaa bukanya pelan-pelan...</p>
+<button onclick="nextSlide()">buka pelan-pelan</button>
+</div>
+
+<!-- SLIDE 2 PASSWORD -->
+<div class="slide">
+<h1>Stop duluu 🤍</h1>
+<p><b>Tanggal jadian kita hayooo kam lupa gaaa? 😌</b></p>
+<input id="pass" placeholder="dd/mm/yy">
+<p style="font-size:.9rem;opacity:.85">clue: bulan kemerdekaan 🇮🇩 tapi bukan 17</p>
+<button onclick="checkPassword()">Masuk</button>
+</div>
+
+<!-- SLIDE 3 PLAY MUSIC -->
+<div class="slide">
+<h1>Hai sayangg 🤍</h1>
+<p>Pelan-pelan ya bacanya…</p>
+<p>biar ga tegang-tegang kali play dulu lagu ini 🎧</p>
+<button class="choice-btn" onclick="playMusicAndGoCokiii()">play 🤍</button>
+<button class="choice-btn" onclick="showDrama()">gamau ah males</button>
+</div>
+
+<!-- SLIDE DRAMA -->
+<div class="slide" id="dramaSlide">
+<h2>kenapaa? ga sayang samakuuu????</h2>
+<button class="choice-btn" onclick="playMusicAndGoCokiii()">sayang la, gas putar lagunya</button>
+<button class="choice-btn" id="runBtn" onmouseover="runAway()">ga sayanggg!!</button>
+</div>
+
+<!-- SLIDE COKIIII -->
+<div class="slide" id="slideCokiii1">
+<h2>cokiiii</h2>
+<p>
+Aku bangga kali punya kam too
+kam tau, aku tau sesibuk apa kam, secapekk apa kam, aku yang ngeliatnya kadang pening sendiri tapi herannya kam tetap bisa bertahan sejauh ini
+</p>
+<button onclick="nextSlide()">spill tipsnya dong mas</button>
+</div>
+
+<!--CAPEK -->
+<div class="slide" id="slideCapek">
+<h2>sayangg kam tauu</h2>
+<p>
+Aku bangga sama semua prosesndu, aku tau ga mudah yang kam lewatin, aku liat semua usahandu walaupun aku ga selalu bisa hadir secara langsung.
+  kadang kam tau sayang, dengar ceritandu tentang gimana kam capeknya, sedihnya, pengen kali akuu ada disitu, yang bener" ada buat kam, disampingndu, peluk kam. Tapi apa boleh buat, ini pilihan kita jadi walaupun pelukanku ga nyampe ke kam, doa terbaikku untukndu selalu kusampekan sama Tuhan.
+</p>
+<button onclick="nextSlide()">lanjuttt sayangg</button>
+</div>
+
+<!-- SLIDE PILIHAN SAYANG -->
+<div class="slide">
+<h2>jujur duluu 🤨</h2>
+<p>sayang aku atau engga?</p>
+<button class="choice-btn" onclick="goTo('slideSayang')">sayanggg kaliii</button>
+<button class="choice-btn" onclick="goTo('slideGa')">ga</button>
+</div>
+
+<div class="slide" id="slideSayang">
+<h2>HAHAH kutaunya memang kam sayang samaku 🤍</h2>
+<button onclick="goTo('tentangKita')">yakannn sayangg</button>
+</div>
+
+<div class="slide" id="slideGa">
+<h2>ah bohong, kutaunya kam sayang samaku orang jidatndu pun udh tertulis situ namaku kalo ga percaya coba aja ngaca kwkw😌</h2>
+<button onclick="goTo('tentangKita')">next</button>
+</div>
+
+<div class="slide" id="tentangKita">
+<h2>Tentang Kita</h2>
+<p>Aku tau LDR itu ga gampang sayang. Asal kam tauu, dulu" aku itu pengen kali pacaran ldr tapi setelah ngejalaninya aku benci kali yang namanya LDR
+  kadang capek, sedih, sepi, kadang pengen nyerah. Tapi aku masih disini walaupun sempat kabur sesaat hehe. Karena nyatanya aku memang mau kam tapi kehalang gengsi seluas samudra jadii denial terus deh.</p>
+<button onclick="nextSlide()">Oiya sayangg</button>
+</div>
+
+<div class="slide" id="slideTolong">
+<h2>Boleh minta tolong???</h2>
+<p> Jaga kesehatan ya, jangan sering telat makan, jangan seringsa begadang. Kutaunya semua yang kam lakukan untuk masa depanndu, kutau juga nya kam tau apa yang kam lakukan dan udah kam perhitungkan dengan sebaik baiknya. Tapi sayang tolong jangan maksain diri terus ya?
+  Aku mau kam sehat bukan cuma kuat </p>
+<button onclick="nextSlide()">Siap" ada yang gemass</button>
+</div>
+
+<!-- FOTO SLIDE 1 -->
+<div class="slide" id="momenKitaSlide">
+<h2>Momen Kita</h2>
+<div class="photo-grid" style="flex-direction:column;align-items:center;">
+<div class="photo-item">
+<img id="foto1" src="foto1.jpeg" class="blur-img">
+<p id="text1" class="typing-text"> yang dulunya cuma temen sekelas</p>
+</div>
+<div class="photo-item">
+<img id="foto2" src="foto2.jpeg" class="blur-img">
+<p id="text2" class="typing-text"> ft sblm kita masing"patah hati. BTW dulu aja, ngerangkul bahu kupaksa</p>
+</div>
+<div class="photo-item">
+<img id="foto3" src="foto3.jpeg" class="blur-img">
+<p id="text3" class="typing-text"> sekarang liatt? inisiatif bgt rangkul pinggang?! berani kali ya wak</p>
+</div>
+</div>
+<button onclick="nextSlide()">Lanjut</button>
+</div>
+
+<!-- FOTO SLIDE 2 -->
+<div class="slide">
+<div class="photo-grid">
+<img src="foto4.jpeg" width="55">
+<img src="foto5.jpeg" width="55">
+<img src="foto6.jpeg" width="55">
+<img src="foto7.jpeg" width="55">
+<img src="foto8.jpeg" width="55">
+</div>
+<p style="margin-top:25px;font-size:1.2rem">
+Liat momen" kita.<br>
+Walaupun cuma lewat layar, tapi semuanya berarti untukku</p>
+<button onclick="nextSlide()">BTWWWW</button>
+</div>
+
+<div class="slide" id="slideRindu">
+<h2>RINDU KALIIII INIII</h2>
+<p> kapan ketemuuuuu???? 2028 kan!!! Awas engga, kudatangi kam sama mamakk kwkwkw </p>
+<button onclick="nextSlide()">Senyum dulu yang, ada yang manis dibawah</button>
+</div>
+
+<div class="slide">
+<h2>Sebelum lanjut 🤭</h2>
+<p>sebutkan nama favoritnduu?</p>
+<input id="secretAnswer" placeholder="jawab sini...">
+<p style="font-size:.9rem;opacity:.85">clue: huruf kecil semua</p>
+<button onclick="checkSecret()">buka rahasia</button>
+</div>
+
+<div class="slide" id="secretSlide">
+<h2>Ini khusus kam baca pelan-pelan yaa 🤍</h2>
+<div class="secret-box">
+<textarea style="width:100%;height:300px">
+haloo my handsome, my love, my world!🪐✨🤍
+happy valentine sayangkuu cintakuu gantengkuu duniakuu!!
+di harii yang penuh cinta ini, aku mauu bilangg aku sangat amatt bersyukurr bisaa terus bersama kammm, terimakasiii banyakkk buatt 5 tahun yang gapernah berhentii buat sayang samaku, makasih jugaa udah mau jadi pacarkuuu 1thn lewat dikit, makasi buat semua yang udah kita lewatinn barengg ya sayangg. semogaa ditahunn tahun selanjutnyaa kitaa  teruss sama"
+di harii yang penuh cinta dan sayang inii, aku harapp cinta kita selalu bertumbuh setiap harinyaa, dan rasa sayangg yang gaakan pernah habiss setiapp harinyaa🤍
+semoga hubungan kitaa bisa saling melengkapii yaa sayangg, akuu sangat berharap ituu selaluu terjadii di hubungan kitaa. aku jugaa berharap kitaa selaluu menjadii seseorangg dengan versii terbaik kitaa masing masing yaa cintaa. maaf untuk semuaa sedih dan luka yang pernah kam rasakan karna aku ya sayanggg, jujur aku selalu ngerasa bersalah dan pengen bertanggungjawab setiap ingat hal ituu. 
+aku akan selalu bilang aku bangga punya kam, jadii pacar nduu, jadi seseorang yang selalu ada buat kam, akupun selalu bangga sama semuaa perjalanan nduu, semuaa proses nduu, semuaa hal positif yang kamm inginkan dan kam laluuinn. 
+terimakasii  selaluu menemani akuu sayangg, terimakasii selaluu sabarr ngadepinn sifatt kuu inii, semogaa kamm selaluu kuatt dan sabarr ngadepinn pacarr nduu inii yaa cintaaa🤏🏻
+harii kasiih sayangg, buatt seseorangg yangg memberii kasihh sayangg setiapp harinyaa, sekalii lagii happy valentine sayanggkuu😽
+</textarea>
+</div>
+<button onclick="nextSlide()">masih ada...</button>
+</div>
+
+<div class="slide">
+<h2>cobaaa kam isi dulu pesan dan kesannduu hahahah</h2>
+<textarea style="width:100%;height:120px"></textarea>
+<button onclick="startCountdown()">kirim cintanya</button>
+</div>
+
+<div class="slide" id="countdownSlide">
+<h2>tunggu duluuu 🤍</h2>
+<div class="countdown" id="count">3</div>
+</div>
+
+<!-- SLIDE LOVE -->
+<div class="slide" id="slideLove">
+<h1 id="bigLoveText" style="font-size:3rem;opacity:0;">I LOVEE U MY LOVEEE 🤍</h1>
+
+<div id="loveButtonBox" style="opacity:0;margin-top:30px;">
+<h2>klik lagiiii kalooo kammm sayaaaaaaaanggg kalii samakuu</h2>
+<button onclick="finalLoveAction()">klik lagiiiiii 🤍</button>
+</div>
+
+<h2 id="afterLoveText" style="margin-top:30px;opacity:0;">
+hehe kam kannn memang gabisa kalo ga sayang samakuuu 🤍
+</h2>
+</div>
+
+
+<div class="slide">
+<h1 class="final-surprise">I LOVE YOU 🤍</h1>
+<p>makasi udah baca sampe akhir, ini bukan sekedar web biasa tapiii inii peluk jauhku untukndu, dibuat dengan sayang dan penuh cinta. Jujue gatau aku  kam ngerasa alay atau engga ini wkkwwk</p>
+</div>
+
+<script>
+let slides=document.querySelectorAll('.slide');
+let currentIndex=0;
+let countdownInterval=null;
+
+function nextSlide(){
+if(currentIndex<slides.length-1){
+slides[currentIndex].classList.remove('active');
+currentIndex++;
+slides[currentIndex].classList.add('active');
+if(slides[currentIndex].id==="momenKitaSlide"){
+startMomenAnimation();
+}
+}
+}
+
+function checkPassword(){
+const input=document.getElementById("pass").value.trim();
+
+if(input==="18/08/24"){
+slides[currentIndex].classList.remove("active");
+currentIndex++;
+slides[currentIndex].classList.add("active");
+}else{
+alert("IHHHH?? TANGGAL JADIAN SIAPA YG KM INGATTT");
+}
+}
+
+
+function goTo(id){
+const index=[...slides].findIndex(s=>s.id===id);
+if(index===-1){
+console.warn("Slide tidak ditemukan:",id);
+return;
+}
+slides[currentIndex].classList.remove('active');
+currentIndex=index;
+slides[currentIndex].classList.add('active');
+if(id==="momenKitaSlide"){
+startMomenAnimation();
+}
+}
+
+function playMusicAndGoCokiii(){
+const music=document.getElementById("music");
+
+music.play().catch(()=>{});
+
+goTo("slideCokiii1");
+}
+ 
+function showDrama(){
+goTo("dramaSlide");
+}
+
+function runAway(){
+const btn=document.getElementById("runBtn");
+btn.style.position="absolute";
+btn.style.left=Math.random()*80+"vw";
+btn.style.top=Math.random()*80+"vh";
+}
+
+
+function checkSecret(){
+const answer=document.getElementById("secretAnswer").value.trim().toLowerCase();
+
+if(answer==="evenia"){
+goTo("secretSlide");
+}else{
+alert(" yaaaahhh, salahhhhh");
+}
+}
+
+
+function ultimateSurprise(){
+
+goTo("slideLove");
+
+// flash background
+document.body.classList.add("flash-bg");
+setTimeout(()=>{
+document.body.classList.remove("flash-bg");
+},1000);
+
+// tampilkan teks besar
+const bigText=document.getElementById("bigLoveText");
+bigText.style.opacity=1;
+
+// stiker heboh
+const emojis=["🤍","💋","🔥","✨","💖","🎉"];
+
+for(let i=0;i<80;i++){
+const sticker=document.createElement("div");
+sticker.className="sticker";
+sticker.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+sticker.style.left=Math.random()*100+"vw";
+sticker.style.animationDuration=(2+Math.random()*2)+"s";
+sticker.style.fontSize=(20+Math.random()*30)+"px";
+document.body.appendChild(sticker);
+
+setTimeout(()=>{sticker.remove()},4000);
+}
+
+// setelah efek selesai + 2 detik
+setTimeout(()=>{
+document.getElementById("loveButtonBox").style.opacity=1;
+},4000);
+
+}
+
+
+function startMomenAnimation(){
+const items=[
+{img:foto1,text:text1},
+{img:foto2,text:text2},
+{img:foto3,text:text3}
+];
+let delay=0;
+items.forEach(item=>{
+item.img.style.filter='blur(12px)';
+item.text.style.opacity=0;
+const original=item.text.textContent;
+item.text.textContent='';
+setTimeout(()=>{
+item.img.style.filter='blur(0px)';
+typeWriter(item.text,original);
+},delay);
+delay+=2500;
+});
+}
+
+function typeWriter(el,text){
+let i=0;
+el.style.opacity=1;
+const interval=setInterval(()=>{
+el.textContent+=text[i];
+i++;
+if(i>=text.length) clearInterval(interval);
+},60);
+}
+
+function startCountdown(){
+
+// reset jika masih berjalan
+if(countdownInterval){
+clearInterval(countdownInterval);
+countdownInterval=null;
+}
+
+// pindah ke slide countdown dulu
+goTo("countdownSlide");
+
+let num=3;
+const el=document.getElementById("count");
+el.textContent=num;
+
+countdownInterval=setInterval(()=>{
+
+num--;
+
+if(num > 0){
+el.textContent=num;
+}else{
+
+    clearInterval(countdownInterval);
+countdownInterval=null;
+
+el.textContent="🤍";
+
+setTimeout(()=>{
+ultimateSurprise();
+},800);
+}
+
+},1000);
+}
+
+function finalLoveAction(){
+
+// hujan love
+for(let i=0;i<50;i++){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="🤍";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(2+Math.random()*2)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),4000);
+}
+
+// munculkan teks akhir
+setTimeout(()=>{
+document.getElementById("afterLoveText").style.opacity=1;
+},800);
+
+}
+
+
+function showLoveRain(){
+for(let i=0;i<40;i++){
+const heart=document.createElement('div');
+heart.className='heart';
+heart.innerHTML='🤍';
+heart.style.left=Math.random()*100+'vw';
+heart.style.animationDuration=(2+Math.random()*2)+'s';
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),4000);
+}
+}
+</script>
+
+</body>
+</html>
